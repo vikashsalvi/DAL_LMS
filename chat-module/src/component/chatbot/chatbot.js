@@ -37,8 +37,9 @@ class OnlineChat extends Component {
             alert('Bot conversation failed')
             return;
           }
-          
-         alert('Success: ' + JSON.stringify(confirmation, null, 2));
+          // setTimeout(function(){ alert('Thanks for using Virtual Assistant!') }, 3000);
+          // alert('Success: ' + JSON.stringify(confirmation, null, 2));
+          alert('Thanks for using Virtual Assistant!') 
           return 'Thank you! what would you like to do next?';
         }
       
