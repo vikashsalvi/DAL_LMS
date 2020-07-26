@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis of Uploaded File</title>
+</head>
+<body>
+<div>
+    <h2>{{ msg }}</h2>
+</div>
+<br/>
+<div>
+    <table>
+        <thead>
+        <tr>
+             <th>
+                Sr No.
+            </th>
+            <th>
+                File Name
+            </th>
+            <th>
+                Cluster Number
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in range(0,filename|length) %}
+        <tr>
+            <td>{{ i+1 }}</td>
+            <td>{{ filename[i] }}</td>
+            <td>{{ cluster[i] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
