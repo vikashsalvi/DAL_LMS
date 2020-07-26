@@ -6,18 +6,38 @@ const NavigationBar = () => {
     const email = localStorage.getItem("email");
     setEmail(email);
   }, []);
+
+  const handleSignout = (username) => {
+    fetch(
+      "https://qpy0o2uhn6.execute-api.us-east-1.amazonaws.com/Auth_deploy/sign_out",
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+        }),
+      }
+    )
+      .then((r) => r.json())
+      .then((r) => {
+        if (r.status === 1) {
+          localStorage.removeItem("username");
+          window.location.reload(false);
+        } else {
+          alert(r["error"]);
+        }
+      });
+  };
+
   const renderLoginControls = () => {
     const username = localStorage.getItem("username");
     if (username !== undefined && username !== null) {
       return (
         <NavDropdown title={email}>
-          <NavDropdown.Item
-            href="#"
-            onClick={() => {
-              localStorage.removeItem("username");
-              window.location.reload(false);
-            }}
-          >
+          <NavDropdown.Item href="#" onClick={() => handleSignout(username)}>
             Sign Out
           </NavDropdown.Item>
         </NavDropdown>
