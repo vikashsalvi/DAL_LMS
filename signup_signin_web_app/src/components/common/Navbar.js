@@ -61,6 +61,7 @@ const NavigationBar = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/dashboard">Home</Nav.Link>
+          <Nav.Link href="/chatbot">Assistance</Nav.Link>
         </Nav>
         {renderLoginControls()}
       </Navbar.Collapse>
