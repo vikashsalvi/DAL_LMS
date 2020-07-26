@@ -37,14 +37,17 @@ class App extends Component {
   render(){
     return (
       <div className="button_container">
+        <h2>Data Processing module</h2>
       <button type="submit" className="button" onClick={this.processFile.bind(this)}>Go to Process Data page</button>
       <br/>
       <br />
       <br />
+      <h2>Machine Learning Analysis 1 module: KMeans Clustring</h2>
       <button type="submit" className="button" onClick={this.analyseFile.bind(this)}>Go to Analyse Data page</button>
       <br/>
       <br />
       <br />
+      <h2>Machine Learning Analysis 2 module: Sentiment Analysis</h2>
       <button type="submit" className="button" onClick={this.tagJson.bind(this)}>Tag chat Json</button>
       <h4>{this.state.message}</h4>
       </div>
