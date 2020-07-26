@@ -1,4 +1,4 @@
-# CSCI2709_Serverless_Project
+# CSCI5410_Serverless_Project
 
 Developed By:
 Darshan Kathiriya
