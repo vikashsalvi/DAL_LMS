@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Col, Button, Container } from "react-bootstrap";
-import { NavigationBar } from "../common";
+import { NavigationBar, NavigationBarForHome } from "../common";
 import { useHistory } from "react-router-dom";
 const Signup = () => {
   let history = useHistory();
@@ -108,7 +108,7 @@ const Signup = () => {
 
   return (
     <>
-      <NavigationBar />
+      <NavigationBarForHome />
       <Container>
         <Form noValidate validated={validated} onSubmit={handleSignup}>
           <Form.Row>

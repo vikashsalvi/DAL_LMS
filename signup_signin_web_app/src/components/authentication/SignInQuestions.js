@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavigationBar } from "../common";
+import { NavigationBar, NavigationBarForHome } from "../common";
 import {
   Form,
   Button,
@@ -65,7 +65,7 @@ const SignInQuestions = () => {
     )
       .then((r) => r.json())
       .then((r) => {
-        if (r.status === 1) history.push("/");
+        if (r.status === 1) history.push("/dashboard");
         else alert("Please provide correct answer");
       });
     event.stopPropagation();
@@ -103,7 +103,7 @@ const SignInQuestions = () => {
   };
   return (
     <>
-      <NavigationBar />
+      <NavigationBarForHome />
       <Container>
         <Row className="justify-content-md-center">
           <Col md="auto">{renderContent()}</Col>

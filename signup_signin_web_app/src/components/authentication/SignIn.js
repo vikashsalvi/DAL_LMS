@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavigationBar } from "../common";
+import { NavigationBar, NavigationBarForHome } from "../common";
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
@@ -52,7 +52,7 @@ const Signin = () => {
 
   return (
     <>
-      <NavigationBar />
+      <NavigationBarForHome />
       <Container>
         <Row className="justify-content-md-center">
           <Col md="auto">

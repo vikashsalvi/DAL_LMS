@@ -1,2 +1,3 @@
-import NavigationBar from "./Navbar"
-export { NavigationBar }
+import NavigationBar from "./Navbar";
+import NavigationBarForHome from "./Navbar";
+export { NavigationBar, NavigationBarForHome };

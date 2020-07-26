@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, NavDropdown, Nav } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 const NavigationBar = () => {
+  const history = useHistory();
   const [email, setEmail] = useState();
   useEffect(() => {
     const email = localStorage.getItem("email");
@@ -25,7 +27,7 @@ const NavigationBar = () => {
       .then((r) => {
         if (r.status === 1) {
           localStorage.removeItem("username");
-          window.location.reload(false);
+          history.replace("/");
         } else {
           alert(r["error"]);
         }
@@ -54,11 +56,11 @@ const NavigationBar = () => {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">DalServerlessLMS</Navbar.Brand>
+      <Navbar.Brand href="/dashboard">DalServerlessLMS</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="/dashboard">Home</Nav.Link>
         </Nav>
         {renderLoginControls()}
       </Navbar.Collapse>
