@@ -11,7 +11,7 @@ class Post extends Component {
             messages: [],
             count: 1,
             time: {}, 
-            seconds: parseInt(this.props.location.state.session_seconds_left) + 10
+            seconds: this.props.location.state.session_seconds_left
         }
         this.timer = 0;
         this.startTimer = this.startTimer.bind(this);
@@ -158,29 +158,30 @@ class Post extends Component {
                 Time left for discussion session to end: 
                 minutes: {this.state.time.m}, seconds: {this.state.time.s}
                 <br />
+
+                <Form>
               <Card style={{ height: '800px' }}>
                 <Card.Body>
-                <Form>
                     
                     <Card style={{ height: '100%' }}>
                         {this.addCards()}
                     </Card>
                     <br />
                     <br />
-                <Row>
-                <Col sm={11}>
-                  <Form.Group controlId="exampleForm.ControlTextarea1">
-
-                    <FormControl ref={this.textInput} type="text" onChange={() => this.handleChange()} />
-                  </Form.Group>
-                </Col>
-                <Col sm={1}> 
-                <Button variant="success"    
-                onClick={this.postMessage.bind(this)}>Post</Button></Col>
-              </Row>
-              </Form>
               </Card.Body>
+                <Row>
+                    <Col sm={11}>
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+
+                        <FormControl ref={this.textInput} type="text" onChange={() => this.handleChange()} />
+                    </Form.Group>
+                    </Col>
+                    <Col sm={1}> 
+                    <Button variant="success"    
+                    onClick={this.postMessage.bind(this)}>Post</Button></Col>
+                </Row>
               </Card>
+              </Form>
             </Container>
 
         );

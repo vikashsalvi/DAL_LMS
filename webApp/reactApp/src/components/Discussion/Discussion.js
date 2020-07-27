@@ -55,7 +55,7 @@ class Discussion extends Component {
         var session_start_time  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSessionTime")
         console.log(session_start_time.data)
         session_start_time = moment(session_start_time.data.toString(),"HH:mm:ss")
-        session_start_time.add(300,'seconds')
+        session_start_time.add(310,'seconds')
         var current_time = moment(moment().format("HH:mm:ss").toString(),"HH:mm:ss")
         this.props.history.push('/post', 
         {'session_name': sessionName.data,'session_seconds_left':session_start_time.diff(current_time,'seconds')})
