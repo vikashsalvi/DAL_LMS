@@ -11,7 +11,8 @@ class Post extends Component {
             messages: [],
             count: 1,
             time: {}, 
-            seconds: this.props.location.state.session_seconds_left
+            seconds: this.props.location.state.session_seconds_left,
+            onlineUsers: []
         }
         this.timer = 0;
         this.startTimer = this.startTimer.bind(this);
@@ -27,10 +28,17 @@ class Post extends Component {
             this.setState({
                 count:2
             })
+            this.showOnlineUsers()
         }
         let timeLeftVar = this.secondsToTime(this.state.seconds);
         this.setState({ time: timeLeftVar });
         console.log(this.props.location.state.session_name)
+
+    }
+
+    async showOnlineUsers(){
+        const onUsers = await Axios.get("https://qpy0o2uhn6.execute-api.us-east-1.amazonaws.com/Auth_deploy/get_online_users")
+        this.setState({onlineUsers: onUsers.data.users});
     }
 
     startTimer() {
@@ -155,10 +163,22 @@ class Post extends Component {
             
             <Container>
                 <br />
+                <h4>Online users</h4>
+                <ul style={{"margin":"20px", "list-style-type":"disc","color":"green"}}>
+                {
+                    this.state.onlineUsers.map(users => {
+                        return <li key={users.name+" - "+users.email}>
+                            <span style={{"color":"black"}}>
+                                {users.name+" - "+users.email}
+                            </span></li>
+                    })
+                }
+                </ul>
+                <br />
                 Time left for discussion session to end: 
                 minutes: {this.state.time.m}, seconds: {this.state.time.s}
                 <br />
-
+            
                 <Form>
               <Card style={{ height: '800px' }}>
                 <Card.Body>
@@ -181,8 +201,7 @@ class Post extends Component {
                     onClick={this.postMessage.bind(this)}>Post</Button></Col>
                 </Row>
               </Card>
-              </Form>
-              
+              </Form><br />
             </Container>
 
         );
