@@ -11,7 +11,7 @@ class Post extends Component {
             messages: [],
             count: 1,
             time: {}, 
-            seconds: this.props.location.state.session_seconds_left
+            seconds: parseInt(this.props.location.state.session_seconds_left) + 10
         }
         this.timer = 0;
         this.startTimer = this.startTimer.bind(this);
@@ -23,7 +23,7 @@ class Post extends Component {
     componentDidMount(){
         if(this.state.count === 1){
             this.startTimer()
-            this.interval = setInterval(() => this.pollSubscriber(), 8000);
+            this.interval = setInterval(() => this.pollSubscriber(), 6000);
             this.setState({
                 count:2
             })
