@@ -23,7 +23,7 @@ class Post extends Component {
     componentDidMount(){
         if(this.state.count === 1){
             this.startTimer()
-            this.interval = setInterval(() => this.pollSubscriber(), 10000);
+            this.interval = setInterval(() => this.pollSubscriber(), 8000);
             this.setState({
                 count:2
             })

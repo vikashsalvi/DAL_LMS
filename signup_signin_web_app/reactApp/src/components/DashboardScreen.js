@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavigationBar } from "./common";
+import Axios from "axios";
 import {
   Container,
   Row,
@@ -112,7 +113,22 @@ const DashbordScreen = () => {
               <ListGroup variant="flush">
                 
                 <ListGroup.Item>
-                  <Button>
+                  <Button
+                  onClick={async () => {
+                    const sessionName  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSessionName")
+                    if(sessionName.data.toString() === "-1"){
+                        console.log("No session")
+                        window.location.assign(
+                          "/discuss?s=1"
+                        );
+                    }else{
+                        console.log("hello "+sessionName.data)
+                        window.location.assign(
+                          "/discuss?s=2"
+                        );
+                    }
+                  }}
+                  >
                      Start discussion module
                   </Button>
                 </ListGroup.Item>

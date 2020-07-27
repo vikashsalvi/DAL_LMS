@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import {withRouter} from "react-router-dom";
 import Axios from "axios";
 import moment from "moment";
+import queryString from 'query-string';
+
 
 class Discussion extends Component {
     constructor(props){
@@ -13,6 +15,7 @@ class Discussion extends Component {
         this.continueChat = this.continueChat.bind(this)
         this.generateButton = this.generateButton.bind(this)
         this.emailId = localStorage.getItem("email");
+        this.button = "";
     }
     redirect(){
         //window.location.href='/post'
@@ -43,6 +46,7 @@ class Discussion extends Component {
     }
 
     componentDidMount(){
+        
         this.getOrCreateSession();
     }
 
@@ -69,25 +73,23 @@ class Discussion extends Component {
     }
 
     generateButton(){
-        var elements=[];
-        this.getOrCreateSession().then(function(result){
-            if(result === true){
-                return true;
-            }else{
-                return false;
-            }
-        })
+        let params = queryString.parse(this.props.location.search)
+
+        if(parseInt(params.s) == 2){
+            return(<Button onClick={this.continueChat}>Discussion is already live, click here to join session</Button>)
+        }else {
+            return(<Button onClick={this.startChat}>Start session</Button>)
+        }
     }
     render() {
         return (
             <div>
-                <br />
-                <div>
-                    <Button onClick={this.startChat}>Start session</Button>
-                    <br />
-                    <br />
-                    <Button onClick={this.continueChat}>Continue session</Button>
-                </div>
+            <br />
+            <br />
+            <div className="d-flex justify-content-center">
+                
+                    {this.generateButton()}
+            </div>
             </div>
         )
     }
