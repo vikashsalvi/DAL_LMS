@@ -106,6 +106,19 @@ const DashbordScreen = () => {
               </ListGroup>
             </Card>
           </Col>
+          <Col xs="auto">
+            <Card body outline>
+              <h2> Discussion module </h2>
+              <ListGroup variant="flush">
+                
+                <ListGroup.Item>
+                  <Button>
+                     Start discussion module
+                  </Button>
+                </ListGroup.Item>
+              </ListGroup>
+            </Card>
+          </Col>
         </Row>
       </Container>
     </>
