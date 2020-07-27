@@ -109,7 +109,7 @@ class Post extends Component {
         email = email.split('.').join("");
         let data = {"topic_id":"discussion_forums","subscriber_name":email};
         console.log(data)
-        const messagePublished  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSubscribermessage", data)
+        const messagePublished  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/subscriber", data)
         console.log(messagePublished.data.data)
         if(messagePublished.data.data != undefined){
             if(messagePublished.data.data.length === 0){
