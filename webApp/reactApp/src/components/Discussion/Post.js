@@ -164,7 +164,7 @@ class Post extends Component {
             <Container>
                 <br />
                 <h4>Online users</h4>
-                <ul style={{"margin":"20px", "list-style-type":"disc","color":"green"}}>
+                <ul style={{"margin":"40px", "list-style-type":"disc","color":"green"}}>
                 {
                     this.state.onlineUsers.map(users => {
                         return <li key={users.name+" - "+users.email}>
