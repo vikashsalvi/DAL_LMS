@@ -50,9 +50,9 @@ class Post extends Component {
         // Check if we're at zero.
         if (seconds === 0) { 
           clearInterval(this.timer);
-          const createResources = await Axios.get("http://localhost:5000/releasePubSubResources")
+          const createResources = await Axios.get("https://us-central1-rapid-rarity-278219.cloudfunctions.net/releasePubSubResources")
           alert("your session had ended")
-          const removeSession = await Axios.get("http://localhost:5000/removeSession")
+          const removeSession = await Axios.get("https://us-central1-rapid-rarity-278219.cloudfunctions.net/removeSession")
           this.props.history.push('/discuss')
         }
       }
@@ -82,7 +82,7 @@ class Post extends Component {
             
             let data = {"message": msg,"session_name":this.props.location.state.session_name};
             
-            const messagePublished  = await Axios.post("http://localhost:5000/publishMessage", data)
+            const messagePublished  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/publishMessage", data)
             console.log("Published")
             console.log(messagePublished)
             /*this.setState({
@@ -100,7 +100,7 @@ class Post extends Component {
         email = email.split("@")[0];
         email = email.split('.').join("");
         let data = {"topic_id":"discussion_forums","subscriber_name":email};
-        const messagePublished  = await Axios.post("http://localhost:5000/getSubscribermessage", data)
+        const messagePublished  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSubscribermessage", data)
         if(messagePublished.data.data.length === 0){
             console.log("No message received")
         }else{

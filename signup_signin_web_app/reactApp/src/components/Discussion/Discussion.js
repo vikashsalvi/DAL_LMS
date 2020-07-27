@@ -19,8 +19,8 @@ class Discussion extends Component {
         this.props.history.push('/post', {'query': this.props.id})
     }
     async startChat(){
-        const sessionName  = await Axios.post("http://localhost:5000/getSessionName")
-        const createResources = await Axios.get("http://localhost:5000/createPubSubResources")
+        const sessionName  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSessionName")
+        const createResources = await Axios.get("https://us-central1-rapid-rarity-278219.cloudfunctions.net/createPubSubResources")
         if(sessionName.data.toString() === "-1"){
             const session_name = {
                 "session_name": moment().format("DD-MM-YYYY_HH:mm:ss"),
@@ -28,10 +28,10 @@ class Discussion extends Component {
                 "user_email": this.emailId
             }
             
-            const createSession  = await Axios.post("http://localhost:5000/createSession",session_name)
+            const createSession  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/createSession",session_name)
             console.log(createSession.data.toString())
             if(createSession.data.toString() === "true"){
-                const sessionName  = await Axios.post("http://localhost:5000/getSessionName")
+                const sessionName  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSessionName ")
                 this.props.history.push('/post', {
                     'session_name': sessionName.data,
                     'session_seconds_left':120,
@@ -46,8 +46,8 @@ class Discussion extends Component {
     }
 
     async continueChat(){
-        const sessionName  = await Axios.post("http://localhost:5000/getSessionName")
-        var session_start_time  = await Axios.post("http://localhost:5000/getSessionTime")
+        const sessionName  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSessionName")
+        var session_start_time  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSessionTime")
         console.log(session_start_time.data)
         session_start_time = moment(session_start_time.data.toString(),"HH:mm:ss")
         session_start_time.add(120,'seconds')
@@ -57,7 +57,7 @@ class Discussion extends Component {
     }
 
     async getOrCreateSession(){
-        const sessionName  = await Axios.post("http://localhost:5000/getSessionName")
+        const sessionName  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSessionName")
         if(sessionName.data.toString() === "-1"){
             console.log("No session")
             //return <DiscussionButton flag="true"></DiscussionButton>
