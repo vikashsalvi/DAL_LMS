@@ -22,16 +22,17 @@ class Discussion extends Component {
         const sessionName  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSessionName")
         const createResources = await Axios.get("https://us-central1-rapid-rarity-278219.cloudfunctions.net/createPubSubResources")
         if(sessionName.data.toString() === "-1"){
+            console.log("No session -1")
             const session_name = {
                 "session_name": moment().format("DD-MM-YYYY_HH:mm:ss"),
                 "session_start_time": moment().format("HH:mm:ss"),
                 "user_email": this.emailId
             }
-            
+            console.log(session_name)
             const createSession  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/createSession",session_name)
-            console.log(createSession.data.toString())
+            console.log("From gf "+ createSession.data.toString())
             if(createSession.data.toString() === "true"){
-                const sessionName  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSessionName ")
+                const sessionName  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSessionName")
                 this.props.history.push('/post', {
                     'session_name': sessionName.data,
                     'session_seconds_left':120,
@@ -62,7 +63,7 @@ class Discussion extends Component {
             console.log("No session")
             //return <DiscussionButton flag="true"></DiscussionButton>
         }else{
-            console.log(sessionName.data)
+            console.log("hello "+sessionName.data)
             //return <DiscussionButton flag="false"></DiscussionButton>
         }
     }

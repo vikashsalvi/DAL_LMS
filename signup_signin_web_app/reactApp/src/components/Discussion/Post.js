@@ -50,10 +50,10 @@ class Post extends Component {
         // Check if we're at zero.
         if (seconds === 0) { 
           clearInterval(this.timer);
-          const createResources = await Axios.get("https://us-central1-rapid-rarity-278219.cloudfunctions.net/releasePubSubResources")
           alert("your session had ended")
           const removeSession = await Axios.get("https://us-central1-rapid-rarity-278219.cloudfunctions.net/removeSession")
-          this.props.history.push('/discuss')
+          const releaseResource = await Axios.get("https://us-central1-rapid-rarity-278219.cloudfunctions.net/releasePubSubResources")
+          this.props.history.push('/dashboard')
         }
       }
 
@@ -78,7 +78,7 @@ class Post extends Component {
             console.log('blank')
         }else{
             
-            let msg = this.props.location.state.user_email+"~~"+this.state.publisherMessage;
+            let msg = localStorage.getItem("email")+"~~"+this.state.publisherMessage;
             
             let data = {"message": msg,"session_name":this.props.location.state.session_name};
             
@@ -96,22 +96,29 @@ class Post extends Component {
     
     async pollSubscriber(){
         
-        let email = this.props.location.state.user_email;
+        let email = localStorage.getItem("email");
         email = email.split("@")[0];
         email = email.split('.').join("");
         let data = {"topic_id":"discussion_forums","subscriber_name":email};
+        console.log(data)
         const messagePublished  = await Axios.post("https://us-central1-rapid-rarity-278219.cloudfunctions.net/getSubscribermessage", data)
-        if(messagePublished.data.data.length === 0){
-            console.log("No message received")
+        console.log(messagePublished.data.data)
+        if(messagePublished.data.data != undefined){
+            if(messagePublished.data.data.length === 0){
+                console.log("No message received")
+            }else{
+                console.log(messagePublished.data.data)
+                for (let i = 0; i < messagePublished.data.data.length; i++) {             
+                    this.setState({
+                        messages: this.state.messages.concat(messagePublished.data.data[i].replace('~~',': '))
+                    })
+               }
+               this.handleChange()
+            }
         }else{
-            console.log(messagePublished.data.data)
-            for (let i = 0; i < messagePublished.data.data.length; i++) {             
-                this.setState({
-                    messages: this.state.messages.concat(messagePublished.data.data[i].replace('~~',': '))
-                })
-           }
-           this.handleChange()
+            console.log("Undefined "+messagePublished.data.data)
         }
+        
     }
     
     componentDidUpdate(prevProp,prevState){
