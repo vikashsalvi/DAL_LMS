@@ -182,6 +182,7 @@ class Post extends Component {
                 </Row>
               </Card>
               </Form>
+              
             </Container>
 
         );
