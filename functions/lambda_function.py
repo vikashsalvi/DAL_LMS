@@ -10,15 +10,15 @@ import base64
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-rds_host = "dal-lms.cg7hbe1k6dgc.us-east-1.rds.amazonaws.com"
-name = "admin"
-password = "DalLms2020"
+rds_host = ""
+name = ""
+password = ""
 db_name = "db_lms"
 port = 3306
 
-USER_POOL_ID = 'us-east-1_ozqEzdHzL'
-CLIENT_ID = '180kvc4uq6d6ko52b152pr95j9'
-CLIENT_SECRET = '1mjlknrpif8bl7a91tt9a8j1m5e5lkpi9obai3t9a1lu8b2751gk'
+USER_POOL_ID = ''
+CLIENT_ID = ''
+CLIENT_SECRET = ''
 
 
 def get_secret_hash(username):
