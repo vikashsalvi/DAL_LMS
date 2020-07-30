@@ -1,4 +1,4 @@
-# CSCI2709_Serverless_Project
+# CSCI5410_Serverless_Project
 
 # Developed By:
 
@@ -6,6 +6,9 @@ Darshan Kathiriya
 Swetha Subhash
 Vikas Salvi
 Yashesh Savani
+
+# URL 
+https://authentication-module.d30suywhaygpxb.amplifyapp.com/
 
 # Project Details
 
@@ -50,3 +53,4 @@ Source: https://archive.ics.uci.edu/ml/machine-learning-databases/reuters21578-m
 [2] Machine learning Analysis 1: KMeans model
 
 “K-Means Clustering with scikit-learn,” Jonathan Soma makes things. [Online]. Available: http://jonathansoma.com/lede/algorithms-2017/classes/clustering/k-means-clustering-with-scikit-learn/. [Accessed: 26-Jul-2020].
+
