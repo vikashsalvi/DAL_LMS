@@ -66,5 +66,11 @@ https://gist.github.com/sebleier/554280. [Accessed: 25-Jul-2020].
 "Google cloud function", Google. [Online]. Available https://cloud.google.com/functions
 
 [6] Google Pub Sub demonstration
-"Googleexamples", Google. [Online]. Available https://github.com/googleapis/python-pubsub
+"Google examples", Google. [Online]. Available https://github.com/googleapis/python-pubsub
+
+[7] ReactJS 
+"React framework", React Org. [Online]. Available https://reactjs.org/
+
+[8] Google Cloud functions
+"Cloud function example", Google. [Online]. Available https://github.com/firebase/functions-samples
 
