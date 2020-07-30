@@ -1,4 +1,4 @@
-# CSCI5410_Serverless_Project
+# CSCI5410_Serverless_Project Group 5
 
 # Developed By:
 
