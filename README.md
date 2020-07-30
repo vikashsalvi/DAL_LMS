@@ -59,4 +59,12 @@ Source: https://archive.ics.uci.edu/ml/machine-learning-databases/reuters21578-m
 262588213843476, “NLTK's list of english stopwords,” Gist. [Online]. Available:
 https://gist.github.com/sebleier/554280. [Accessed: 25-Jul-2020].
 
+[4] Google PubSub
+"Google pub sub", Google. [Online]. Available: https://cloud.google.com/pubsub/docs
+
+[5] Google Cloud Platform functions
+"Google cloud function", Google. [Online]. Available https://cloud.google.com/functions
+
+[6] Google Pub Sub demonstration
+"Googleexamples", Google. [Online]. Available https://github.com/googleapis/python-pubsub
 
