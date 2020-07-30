@@ -54,3 +54,9 @@ Source: https://archive.ics.uci.edu/ml/machine-learning-databases/reuters21578-m
 
 “K-Means Clustering with scikit-learn,” Jonathan Soma makes things. [Online]. Available: http://jonathansoma.com/lede/algorithms-2017/classes/clustering/k-means-clustering-with-scikit-learn/. [Accessed: 26-Jul-2020].
 
+[3] Machine Learning Analysis 2: stopwords.txt
+
+262588213843476, “NLTK's list of english stopwords,” Gist. [Online]. Available:
+https://gist.github.com/sebleier/554280. [Accessed: 25-Jul-2020].
+
+
