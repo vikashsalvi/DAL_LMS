@@ -73,5 +73,3 @@ https://gist.github.com/sebleier/554280. [Accessed: 25-Jul-2020].
 
 [8] Google Cloud functions
 "Cloud function example", Google. [Online]. Available https://github.com/firebase/functions-samples
-
-
