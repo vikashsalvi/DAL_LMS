@@ -1,4 +1,4 @@
-# CSCI5410_Serverless_Project Group 5
+# DAL Learning Management System CSCI5410 Serverless Data Processing
 
 # Developed By:
 1. Vikash Salvi 
