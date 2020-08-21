@@ -1,10 +1,10 @@
 # CSCI5410_Serverless_Project Group 5
 
 # Developed By:
-Vikash Salvi
-Yashesh Savani
-Darshan Kathiriya
-Swetha Subhash
+1. Vikash Salvi 
+2. Yashesh Savani
+3. Darshan Kathiriya
+4. Swetha Subhash
 
 
 # URL 
