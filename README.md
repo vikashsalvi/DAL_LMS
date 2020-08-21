@@ -1,11 +1,11 @@
 # CSCI5410_Serverless_Project Group 5
 
 # Developed By:
-
+Vikash Salvi
+Yashesh Savani
 Darshan Kathiriya
 Swetha Subhash
-Vikas Salvi
-Yashesh Savani
+
 
 # URL 
 https://authentication-module.d30suywhaygpxb.amplifyapp.com/
